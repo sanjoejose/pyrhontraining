@@ -1,0 +1,11 @@
+p=int(input())
+t=int(input())
+r=int(input())
+i=float((r*t*p)/100)
+a=float(p+i)
+d=(i*2)/100
+f=a-d
+print("%.2f"%i)
+print("%.2f"%a)
+print("%.2f"%d)
+print("%.2f"%f)
