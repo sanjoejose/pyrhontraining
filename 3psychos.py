@@ -1,0 +1,7 @@
+x1=int(input())
+y1=int(input())
+x2=int(input())
+y2=int(input())
+x3=float((x1+x2)/2)
+y3=float((y1+y2)/2)
+print("Arun's house is located at(",x3,",",y3,")",sep="")
