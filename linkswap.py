@@ -14,23 +14,25 @@ class ll:
         else:
             self.temp.next=nn
             self.temp=nn
-    def trav(self):
-        t=self.head
-        while t!=None:
-            print(t.data)
-            t=t.next
-    def max(self):
-      t=self.head
-      maxim=t.data
-      while t!=None:
-        if t.data>maxim:
-          maxim=t.data
-          t=t.next
-      return(maxim)
+    def swap(self):
+       t1=self.head
+       t2=t1.next
+       while t2!=None:
+          print(t2.data)
+          print(t1.data)
+          t1=t2.next
+          if t1==None:
+            return
+          t2=t1.next
+       print(t1.data)
 l=ll()
 n=int(input())
+count=0
 while n>-1:
   l.insert(n)
   n=int(input())
-m=l.max()
-print(m)
+  count+=1
+if count==0:
+  print("List is empty")
+else:
+  l.swap()
