@@ -13,7 +13,7 @@ class ll:
             self.head=nn
             self.temp=nn
         else:
-            nn=box(data,temp)
+            nn=box(data,self.temp)
             self.temp.next=nn
             self.temp=nn
     def nthnode(self,n):

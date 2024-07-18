@@ -7,19 +7,30 @@ class ll:
     self.head=None
     self.temp=None
   def insert(self,data):
-    nn=box(data)
-    if self.head==None:
-      self.head=nn
-      self.temp=nn
-    else:
-      self.temp.next=nn
-      self.temp=nn
+        nn=box(data)
+        if self.head==None:
+            self.head=nn
+            self.temp=nn
+        elif self.head.data>=data:
+            nn.next=self.head
+            self.head=nn
+        elif self.temp.data<=data:
+           self.temp.next=nn
+           self.temp=nn
+        else:
+            t=self.head
+            while t.next!=None:
+                if t.next.data>=data:
+                    break
+                t=t.next
+            nn.next=t.next
+            t.next=nn
   def trav(self):
     t=self.head
-    while(t!=None):
+    while(t.next!=None):
       print(t.data,"->",sep="",end="")
       t=t.next
-    print("->NULL")
+    print("NULL")
   def create(self,lin1,lin2):
     p1=lin1.head
     p2=lin2.head
