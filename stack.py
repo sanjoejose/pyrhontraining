@@ -1,26 +1,14 @@
-class box:
-    def __init__(self,data):
-        self.data=data
-        self.next=None
 class li:
     def __init__(self,n):
-        self.head=None
-        self.temp=None
+        self.top=-1
+        self.stac=[0]*n
     def push(self,data):
-        nn=box(data)
-        if self.head==None:
-            self.head=nn
-            self.temp=nn
-        else:
-            nn.link=self.head
-            self.head=nn
+        self.top+=1
+        self.stac[self.top]=data
     def pop(self):
-        if self.head!=None:
-            t=self.head.data
-            self.head=self.head.next
-            return t
-        else:
-            return -1
+        t=self.stac[self.top]
+        self.top-=1
+        return t
 st=input()
 l=li(len(st))
 check=0
@@ -30,20 +18,20 @@ for i in range(len(st)):
     elif st[i]==')':
         temp=l.pop()
         if temp!='(':
-            print("Not Balanced")
+            print("No")
             check=1
             break
     elif st[i]=='}':
         temp=l.pop()
         if temp!='{':
-            print("Not Balanced")
+            print("No")
             check=1
             break
     elif st[i]==']':
         temp=l.pop()
         if temp!='[':
-            print("Not Balanced")
+            print("No")
             check=1
             break
 if check==0:
-    print("Balanced")
+    print("Yes")
